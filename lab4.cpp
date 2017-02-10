@@ -22,21 +22,24 @@ int main()
 	while (answer=='s'){
 		cout<<"Ingrese la palabra clave: ";
 		cin>>word;
+		cin.ignore(256,'\n');
 		cout<<"Ingrese el texto a cifrar: ";
 		getline(cin,text);
 		//TODO: cifrado de vigenere
 		
 		//TODO: cifrado del cesar
-
+			cout<<codeCesar(text);
 		//TODO: cifrado de xor
 		int* numberText = new int [text.size()];
 		int* numberWord = new int [word.size()];
 		numberText = numbers(text);
 		numberWord = numbers(word); 
 		//VIGE
-		cout<<"Cifrado de Vigenere";
+		cout<<"\nCifrado de Vigenere\n";
 		char* textos = new char[text.size()];
 		char* claves = new char[word.size()];
+		textos = text;
+		claves = word;
 		cout<<codeVigenere(textos , claves,text.size(),word.size());
 		cout<<"Desea continuar [s/n]: ";
 		cin>>answer;			
