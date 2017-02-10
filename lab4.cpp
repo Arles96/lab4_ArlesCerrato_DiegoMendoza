@@ -33,7 +33,11 @@ int main()
 		int* numberWord = new int [word.size()];
 		numberText = numbers(text);
 		numberWord = numbers(word); 
-			
+		//VIGE
+		cout<<"Cifrado de Vigenere";
+		char* textos = new char[text.size()];
+		char* claves = new char[word.size()];
+		cout<<codeVigenere(textos , claves,text.size(),word.size());				
 	}
 	return 0;
 }
@@ -74,22 +78,22 @@ int* numbers (string word)
 
 
 //Metodo codigo vigenere
-string codeVigenere(char* texto[] , char* clave[],int sizeText , int sizeClue ){
-   char** matrixLetter = new char* matrixLetter[25] ; //TODO:Hay que intercambiar esta mierda
+string codeVigenere(char* texto , char* clave, int sizeText , int sizeClue){
+   char** matrixLetter = new char* [25]; 
    for(int i  = 0 ; i<25 ; i++){
-         matrixLetter[i] = new char matrixLetter[25];
+					  matrixLetter[i] = new char[25];
 
    }
    int textSize;//Tamano de las palabras
 
    int value = 65;//Para ingresar el valor ascii
    int start = 0 ; //Hace empezar en la siguiente letra
-   int numberColum = new int [sizeClue]; //Numero de la columna de cada palabra
+   //int* numberColum = new int [sizeClue]; //Numero de la columna de cada palabra
 
    //Llenado de matriz con el abecedario
-   for(int i= 0 ;i <= 24 , i++){
+   for(int i= 0 ;i <= 24 ; i++){
       value = value+start;
-      for(j = 0 ;j <= 24 ;j++ ){
+      for(int j = 0 ;j <= 24 ;j++ ){
          if(value <=90){
 
             matrixLetter[i][j] = value;
@@ -102,11 +106,11 @@ string codeVigenere(char* texto[] , char* clave[],int sizeText , int sizeClue ){
    
    }   
    //Sacamos el tamano de los string , NO SE OCUPA
-   textSize = contLetter(&texto ,sizeText );  
+   //textSize = contLetter(texto ,sizeText );  
    //Cambiando letra
-   changeLetter(&matrixLetter,&texto,&clave,sizeText ,sizeClue);
+   changeLetter(matrixLetter,texto,clave,sizeText ,sizeClue);
    string palabra;
-   for(int i = 0 ; i<sizeText , i++){
+   for(int i = 0 ; i<sizeText ; i++){
       palabra+=texto[i];
    }   
    return palabra;
@@ -115,10 +119,10 @@ string codeVigenere(char* texto[] , char* clave[],int sizeText , int sizeClue ){
 
 
 //Contar letras
-int contLetter(char* text[]  , int sizeText){
+int contLetter(char* text  , int sizeText){
    int cont = 0 ; 
    for(int i = 0 ; i<sizeText ; i++ ){
-      if(*text[0] !='\0'){
+      if(text[0] !='\0'){
          cont ++; 
 
       }   
@@ -131,13 +135,13 @@ int contLetter(char* text[]  , int sizeText){
 //Metodo que intercambia las palabras 
 
 //Matriz de abecedario , texto , clave.
-void changeLetter(  char** matriz , char* text[] , char* clue[],int sizeText,int sizeClave){
+void changeLetter(  char** matriz , char* text , char* clue,int sizeText,int sizeClave){
       int flag = 0 ; //Para moverse entre columnas
-      for(int i = 0 ; i <=sizeText , i++){
-         if(flag< sizeClave && *text[i]!='\0'){// y que sea distinto de espacio en blanco
+      for(int i = 0 ; i <=sizeText ; i++){
+         if(flag< sizeClave && text[i]!='\0'){// y que sea distinto de espacio en blanco
             int colum =clue[flag]-65;
             int fila = text[i]-65;
-            *text[i] = matriz[fila][colum];
+            text[i] = matriz[fila][colum];
          }else{
             flag = 0;
          }
