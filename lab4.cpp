@@ -38,8 +38,12 @@ int main()
 		cout<<"\nCifrado de Vigenere\n";
 		char* textos = new char[text.size()];
 		char* claves = new char[word.size()];
-		textos = text;
-		claves = word;
+		for (int i=0; i<text.size(); i++){
+			textos[i] = text[i];
+		}
+		for (int i=0; i<word.size(); i++){
+			claves[i]=word[i];
+		}
 		cout<<codeVigenere(textos , claves,text.size(),word.size());
 		cout<<"Desea continuar [s/n]: ";
 		cin>>answer;			
