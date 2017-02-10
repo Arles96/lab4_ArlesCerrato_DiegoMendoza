@@ -3,11 +3,11 @@
 #include <bitset>
 
 using namespace std;
-
+//Hola
 //funcion para el cifrado del cesar
 string codeCesar(string);
 //funcion para la asignacion de numeros
-int* numbers (sring);
+int* numbers (string);
 
 int main()
 {
@@ -24,10 +24,11 @@ int main()
 		//TODO: cifrado del cesar
 
 		//TODO: cifrado de xor
-		int numberText = new int [text.size()];
-		int numberWord = new int [word.size()];
-		numberText = 
-
+		int* numberText = new int [text.size()];
+		int* numberWord = new int [word.size()];
+		numberText = numbers(text);
+		numberWord = numbers(word); 
+			
 	}
 	return 0;
 }
@@ -59,7 +60,7 @@ string codeCesar(string word)
 
 int* numbers (string word)
 {
-	int number = new int [word.size()];
+	int* number = new int [word.size()];
 	for (int i=0; i<word.size(); i++){
 		number[i] = word[i];
 	}	
