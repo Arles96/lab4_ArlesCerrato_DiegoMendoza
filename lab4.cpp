@@ -14,6 +14,7 @@ string codeCesar(string);
 //funcion para la asignacion de numeros
 int* numbers (string);
 
+//Funciones para el codigo de XOR;
 int main()
 {
 	char answer = 's';
@@ -152,3 +153,19 @@ void changeLetter(  char** matriz , char* text , char* clue,int sizeText,int siz
          }
       }   
 }
+//Metodos para XOR
+void codigoXOR(string text, string clave){
+	int arregloTexto [text.size()];
+	int arregloClave [clave.size()];
+	for(int  i = 0  ; i < text.size(); i++){
+		arregloTexto[i] = text[i];
+		 
+	}	
+	for(int i= 0 ; i< clave.size(),i++){
+		arregloClave[i] = clave[i];
+	}
+	
+
+}
+
+
