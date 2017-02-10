@@ -161,14 +161,32 @@ void changeLetter(  char** matriz , char* text , char* clue,int sizeText,int siz
 void codigoXOR(string text, string clave){
 	int arregloTexto [text.size()];
 	int arregloClave [clave.size()];
+	bin<8> binText[text.size()];
+	bin<8> binClave[clave.size()];
 	for(int  i = 0  ; i < text.size(); i++){
 		arregloTexto[i] = text[i];
-		 
+		binText[i] = arregloText[i];
+		
 	}	
 	for(int i= 0 ; i< clave.size(),i++){
 		arregloClave[i] = clave[i];
+		binClave[i]= arregloClave[i];
 	}
-	
+	int flag = 0;
+	for(int i = 0 ; i<text.size();i++){
+		if(flag<clave.size()){
+		 cout << (binText[i]&bintClave[flag]) << '\n';        // 0010
+		 cout << (binText[i]|bintClave[flag]) << '\n';        // 0111
+ 		 cout << (binText^bintClave[flag]) << '\n';
+		flag++;
+		}else{
+		flag=0;
+		cout << (binText[i]&bintClave[flag]) << '\n';        // 0010
+      cout << (binText[i]|bintClave[flag]) << '\n';        // 0111
+      cout << (binText^bintClave[flag]) << '\n';
+		flag++;
+		}
+	}
 
 }
 
