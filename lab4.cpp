@@ -37,7 +37,9 @@ int main()
 		cout<<"Cifrado de Vigenere";
 		char* textos = new char[text.size()];
 		char* claves = new char[word.size()];
-		cout<<codeVigenere(textos , claves,text.size(),word.size());				
+		cout<<codeVigenere(textos , claves,text.size(),word.size());
+		cout<<"Desea continuar [s/n]: ";
+		cin>>answer;			
 	}
 	return 0;
 }
